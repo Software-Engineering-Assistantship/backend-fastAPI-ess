@@ -1,21 +1,7 @@
 version: "3.3"
 
 services:
-  ess-backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: ess-backend
-    ports:
-      - "8000:8000"
-    restart: always
-    volumes:
-      - .:/usr/src/app/backend
-    networks:
-      - api-network
-    environment:
-      DB_URL: ${DB_URL}
-
+  # TODO: add a service for the backend
   mongodb:
     image: mongo
     ports:
