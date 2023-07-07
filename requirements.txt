@@ -3,3 +3,5 @@ uvicorn[standard]
 pydantic
 pymongo
 python-dotenv
+pytest
+pytest-bdd
