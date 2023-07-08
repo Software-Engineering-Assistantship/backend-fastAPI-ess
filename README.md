@@ -31,23 +31,36 @@ pip install -r requirements.txt
 
 ## Running MongoDB with Docker 🐳
 
-Docker is a tool that enables us to separate applications from their infrastructure, allowing us to deliver software quickly. It provides the ability to package and run an application in a loosely isolated environment called a container, facilitating work in standardized environments. To install Docker, it is recommended to follow the [Docker documentation](https://docs.docker.com/engine/install/) specific to your operating system. Additionally, installing [Docker Desktop](https://www.docker.com/products/docker-desktop/) is also recommended for a user-friendly graphical interface and streamlined management of Docker resources. The database is run using [Docker Compose](https://docs.docker.com/compose/install/), which is a container orchestrator. To install Docker Compose, follow the tutorial provided by Docker's official documentation.
+Docker is a tool that enables us to separate applications from their infrastructure, allowing us to deliver software quickly. It provides the ability to package and run an application in a loosely isolated environment called a container, facilitating work in standardized environments. To install Docker, it is recommended to follow the [Docker documentation](https://docs.docker.com/engine/install/) specific to your operating system. Additionally, installing [Docker Desktop](https://www.docker.com/products/docker-desktop/) is also recommended for a user-friendly graphical interface and streamlined management of Docker resources. The database is run using [Docker Compose](https://docs.docker.com/compose/install/), which is a container orchestrator. To install Docker Compose, follow the tutorial provided by Docker's official documentation. 
+
+If you are running on Windows, please make sure to open the Docker Desktop application before proceeding. It is required to run the container.
 
 ### First time running?
 
-Run the follow scripts to build the images
+To initialize Docker swarm mode, run the following command:
+```sh
+docker swarm init
+```
+
+This command will set up the necessary infrastructure for running Docker services. Once initialized, you can continue with the rest of the steps to run your application.
+
+Run the follow scripts to build the images and run the containers:
 
 ```sh
 docker-compose up --build
 ```
 
+This command will build the necessary container images and start them. Once the containers are up and running, you will be able to use the database for your application.
+
 ### Running Database
 
-Run docker compose
+To run the database container after the initial build, you can simply execute the following command:
 
 ```sh
 docker-compose up
 ```
+
+This command will start the database container without rebuilding it, unless you have made any changes to the Docker configuration that require a rebuild.
 
 If you want to run the docker container without watch the logs, you can run 
 
