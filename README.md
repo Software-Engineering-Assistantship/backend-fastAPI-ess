@@ -88,6 +88,14 @@ uvicorn src.main:app --reload
 
 This command will run the Uvicorn compiler in watch mode, so every time a modification occurs the server restarts.
 
+### API documentation
+
+FastAPI provides automatic API documentation that you can access by visiting the /docs endpoint of your application. This documentation is generated based on the code you have written, including route definitions, request and response models, and documentation comments. To view the API documentation, you can go to the URL http://localhost:8000/docs (assuming your FastAPI application is running on localhost and port 8000). This will display a user-friendly interface where you can explore the available endpoints, send requests, and view the corresponding responses. 
+
+The API documentation includes detailed information about each endpoint, such as the expected request and response models, possible response codes, and any additional documentation you have provided in your code. It serves as a helpful reference for developers who want to understand how to interact with your API.
+
+For more information on FastAPI's features and how to use them, you can refer to the [official documentation](https://fastapi.tiangolo.com/features/).
+
 ## Running the BDD tests
 
 The base project is configured to perform service tests using Pytest and the Pytest-BDD library, which implements Behavior-Driven Development (BDD) with Cucumber and Gherkin syntax.
