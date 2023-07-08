@@ -5,9 +5,11 @@ This is the Back-end base project in Python with FastAPI for the Software and Sy
 ## Table of Contents
 
 1. [Getting Started](##getting-started)
-2. [Scripts](#scripts)
-3. [Dependencies](#dependencies)
-4. [Architecture](#architecture)
+2. [Running MongoDB with Docker 🐳](#running-mongodb-with-docker-🐳)
+3. [Running the FastAPI server 🦄](#running-the-fastapi-server-🦄)
+4. [Running the BDD tests](#running-the-bdd-tests)
+5. [Dependencies](#dependencies)
+6. [Architecture](#architecture)
 
 ## Getting Started
 
@@ -27,9 +29,9 @@ Clone the repository and install the dependencies by running the following comma
 pip install -r requirements.txt
 ```
 
-# Running MongoDB with Docker 🐳
+## Running MongoDB with Docker 🐳
 
-## First time running?
+### First time running?
 
 
 Run the follow scripts to build the images
@@ -38,7 +40,7 @@ Run the follow scripts to build the images
 docker-compose up --build
 ```
 
-## Running Database
+### Running Database
 
 Run docker compose
 
@@ -62,7 +64,7 @@ docker-compose down
 
 This project uses `.env` files to manage database environment variables (you can create it from .`env.example`).
 
-# Running the FastAPI server 🦄
+## Running the FastAPI server 🦄
 
 To start the server, run the following command:
 
@@ -71,6 +73,38 @@ uvicorn src.main:app --reload
 ```
 
 This command will run the Uvicorn compiler in watch mode, so every time a modification occurs the server restarts.
+
+## Running the BDD tests
+
+The base project is configured to perform service tests using Pytest and the Pytest-BDD library, which implements Behavior-Driven Development (BDD) with Cucumber and Gherkin syntax.
+
+To run all the tests, simply navigate to the root directory of your project and run the following command:
+
+```sh
+pytest 
+```
+
+If you want to enable verbose output and print statements during the test execution, you can use the ```-sv``` option:
+```sh
+pytest -sv
+```
+
+The ```-s``` option allows printing of statements and the ```-v``` option provides more detailed information about the test execution, including the names of the tests being run. By running the tests with these options, you can get a more comprehensive view of the test execution process, including any print statements or debug information that you have included in your test code.
+
+### Organizing the tests
+
+The tests are located in the Tests folder, where we organize the test code for different components. Within each component folder, we have two main directories: features and step-definitions. This separation allows us to keep the feature files and step definitions organized and maintainable.
+
+#### Features
+
+This directory is intended to store all the .feature files, which are used to describe the features using scenarios with a Cucumber and Gherkin BDD approach. In the feature files, you will find the high-level description of the desired behavior in a human-readable format. The scenarios outline specific steps and expected outcomes, allowing stakeholders to understand and validate the expected behavior of the software.
+
+#### Step Definitions
+
+The second main directory in the Tests folder is the Step Definitions directory. This directory contains the step definition files, which define the behavior and implementation of each step in the feature scenarios, that is the actions, assertions, and interactions necessary to execute the scenarios. In the step definition files, you will find Python functions that are annotated with the corresponding Given, When, and Then steps from the feature files. These functions implement the actual logic and actions to be performed for each step in the scenario.
+
+***Note:*** *To ensure that Pytest recognizes the files as tests, it's important to follow the naming convention by prefixing all test files with "test_". By using the "test_" prefix, Pytest can automatically discover and execute the test files during the test execution.*
+
 
 ## Dependencies
 
