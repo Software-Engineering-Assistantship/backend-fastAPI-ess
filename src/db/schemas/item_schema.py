@@ -1,5 +1,5 @@
 
-from db.schemas.model_schema import ModelSchema
+from src.db.schemas.model_schema import ModelSchema
 
 
 class ItemSchema(ModelSchema):

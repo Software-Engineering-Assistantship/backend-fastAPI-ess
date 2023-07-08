@@ -1,7 +1,7 @@
 
 from abc import ABC, abstractmethod
 
-from schemas.item import ItemGet
+from src.schemas.item import ItemGet
 
 class ItemServiceMeta(ABC):
 

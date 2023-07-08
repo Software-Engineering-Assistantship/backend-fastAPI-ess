@@ -1,7 +1,7 @@
-from schemas.response import HTTPResponses, HttpResponseModel
+from src.schemas.response import HTTPResponses, HttpResponseModel
 from pytest_bdd import parsers, given, when, then, scenario
-from service.impl.item_service import ItemService
-from tests.api.utils.utils import get_response_items_list, req_type_to_function
+from src.service.impl.item_service import ItemService
+from src.tests.api.utils.utils import get_response_items_list, req_type_to_function
 
 """ Scenario: Obter item por ID """
 

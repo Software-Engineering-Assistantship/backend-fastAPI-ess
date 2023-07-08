@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 from typing import Generator
-from main import app
+from src.main import app
 
 @pytest.fixture(scope="function")
 def client() -> Generator:
