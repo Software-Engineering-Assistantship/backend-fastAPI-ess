@@ -4,9 +4,9 @@ This is the Back-end base project in Python with FastAPI for the Software and Sy
 
 ## Table of Contents
 
-1. [Getting Started](##getting-started)
-2. [Running MongoDB with Docker 🐳](#running-mongodb-with-docker-🐳)
-3. [Running the FastAPI server 🦄](#running-the-fastapi-server-🦄)
+1. [Getting Started](#getting-started)
+2. [Running MongoDB with Docker](#running-mongodb-with-docker-🐳)
+3. [Running the FastAPI server](#running-the-fastapi-server-🦄)
 4. [Running the BDD tests](#running-the-bdd-tests)
 5. [Dependencies](#dependencies)
 6. [Architecture](#architecture)
@@ -31,8 +31,9 @@ pip install -r requirements.txt
 
 ## Running MongoDB with Docker 🐳
 
-### First time running?
+Docker is a tool that enables us to separate applications from their infrastructure, allowing us to deliver software quickly. It provides the ability to package and run an application in a loosely isolated environment called a container, facilitating work in standardized environments. To install Docker, it is recommended to follow the [Docker documentation](https://docs.docker.com/engine/install/) specific to your operating system. Additionally, installing [Docker Desktop](https://www.docker.com/products/docker-desktop/) is also recommended for a user-friendly graphical interface and streamlined management of Docker resources. The database is run using [Docker Compose](https://docs.docker.com/compose/install/), which is a container orchestrator. To install Docker Compose, follow the tutorial provided by Docker's official documentation.
 
+### First time running?
 
 Run the follow scripts to build the images
 
@@ -113,6 +114,8 @@ The following dependencies are used in the project:
 - [python-dotenv](https://pypi.org/project/python-dotenv/): A simple way to manage your environment variables in python scripts.
 - [FastAPI](https://fastapi.tiangolo.com/): A modern, fast (high-performance), web framework for building APIs with Python.
 - [Uvicorn](https://www.uvicorn.org/): An ASGI web server implementation for Python.
+- [Docker](https://docs.docker.com/get-started/overview/): Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly.
+- [Docker Compose](https://docs.docker.com/compose/): Docker Compose is a tool for defining and running multi-container Docker applications.
 - [Pydantic](https://docs.pydantic.dev/latest/): The most widely used data validation library for Python.
 - [Pymongo](https://pymongo.readthedocs.io/en/stable/tutorial.html): A Python distribution containing tools for working with MongoDB, and is the recommended way to work with MongoDB from Python.
 - [Pytest](https://docs.pytest.org/en/7.4.x/): Framework that makes it easy to write small, readable tests, and can scale to support complex functional testing for applications and libraries.
