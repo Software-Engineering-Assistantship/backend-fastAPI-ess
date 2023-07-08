@@ -1,6 +1,5 @@
 from typing import List, Dict
 from uuid import uuid4
-from bson import ObjectId
 from pymongo import MongoClient, errors
 from pymongo.collection import Collection, IndexModel
 from config.config import env
@@ -110,15 +109,15 @@ class Database():
     
     def get_all_items(self, collection_name: str) -> list:
         """
-        Get all items from a collection.
+        Get all items from a collection
 
         Parameters:
         - collection_name: str
-            The name of the collection.
+            The name of the collection
 
         Returns:
         - list
-            A list of all items in the collection.
+            A list of all items in the collection
 
         """
 
@@ -159,13 +158,54 @@ class Database():
             The item to insert
 
         Returns:
-        - str:
+        - dict:
             The inserted item
 
         """
+        # TODO: test if this method works
+
         item["id"] = str(uuid4())[:self.ID_LENGTH]
-        item_id = self.db[collection_name].insert_one(item).inserted_id
+
+        collection: Collection = self.db[collection_name]
+
+        item_id = collection.insert_one(item).inserted_id
         return {
             "id": str(item_id),
             **item
         }
+    
+    # TODO: implement update_item method
+    # def update_item(self, collection_name: str, item_id: str, item: dict) -> dict:
+        """
+        Update an item in a collection
+
+        Parameters:
+        - collection_name: str
+            The name of the collection where the item is stored
+        - item_id: str
+            The ID of the item to update
+        - item: dict
+            New item data
+
+        Returns:
+        - dict:
+            The updated item
+
+        """
+
+    # TODO: implement delete_item method
+    # def delete_item(self, collection_name: str, item_id: str) -> list:
+        """
+        Delete an item of a collection
+
+        Parameters:
+        - collection_name: str
+            The name of the collection where the item is stored
+        - item_id: str
+            The ID of the item to delete
+
+        Returns:
+        - list:
+            A list of all items in the collection.
+
+        """

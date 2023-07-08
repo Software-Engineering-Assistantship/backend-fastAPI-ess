@@ -63,3 +63,6 @@ def get_items() -> HttpResponseModel:
     item_list_response = ItemService.get_items()
     
     return item_list_response
+
+
+# TODO: Add POST, PUT, DELETE endpoints

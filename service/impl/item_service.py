@@ -34,3 +34,5 @@ class ItemService(ItemServiceMeta):
                 status_code=HTTPResponses.ITEM_FOUND().status_code,
                 data=items,
             )
+    
+    # TODO: implement other methods (create, update, delete)

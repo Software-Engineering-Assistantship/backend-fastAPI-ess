@@ -8,6 +8,10 @@ class HttpResponseModel(BaseModel):
 
 class HTTPResponses:
 
+    """
+    This class contains the basic HTTP responses for the API
+    """
+
     @staticmethod
     def ITEM_NOT_FOUND() -> HttpResponseModel:
         return HttpResponseModel(
@@ -35,3 +39,6 @@ class HTTPResponses:
             message="Server error",
             status_code=500,
         )
+
+
+    # TODO: implement other responses (item created, updated, deleted, etc)
