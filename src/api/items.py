@@ -5,7 +5,7 @@ from src.service.impl.item_service import ItemService
 router = APIRouter()
 
 @router.get(
-    "/{item_id}", 
+    "/{item_id}",
     response_model=HttpResponseModel,
     status_code=status.HTTP_200_OK,
     description="Retrieve an item by its ID",
@@ -39,7 +39,7 @@ def get_item(item_id: str) -> HttpResponseModel:
 
 
 @router.get(
-    "/", 
+    "/",
     response_model=HttpResponseModel,
     status_code=status.HTTP_200_OK,
     description="Retrieve all items",
@@ -61,7 +61,7 @@ def get_items() -> HttpResponseModel:
     """
 
     item_list_response = ItemService.get_items()
-    
+
     return item_list_response
 
 

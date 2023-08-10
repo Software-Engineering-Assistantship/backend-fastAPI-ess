@@ -18,7 +18,7 @@ class ItemService(ItemServiceMeta):
                 status_code=HTTPResponses.ITEM_FOUND().status_code,
                 data=item,
             )
-    
+
     @staticmethod
     def get_items():
         """Get items method implementation"""
@@ -28,11 +28,11 @@ class ItemService(ItemServiceMeta):
                 message=HTTPResponses.ITEM_NOT_FOUND().message,
                 status_code=HTTPResponses.ITEM_NOT_FOUND().status_code,
             )
-        
+
         return HttpResponseModel(
                 message=HTTPResponses.ITEM_FOUND().message,
                 status_code=HTTPResponses.ITEM_FOUND().status_code,
                 data=items,
             )
-    
+
     # TODO: implement other methods (create, update, delete)
