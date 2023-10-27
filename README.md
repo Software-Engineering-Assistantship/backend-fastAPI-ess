@@ -4,9 +4,9 @@ This is the Back-end base project in Python with FastAPI for the Software and Sy
 
 ## Table of Contents
 
-1. [Getting Started](##getting-started)
-2. [Running MongoDB with Docker 🐳](#running-mongodb-with-docker-🐳)
-3. [Running the FastAPI server 🦄](#running-the-fastapi-server-🦄)
+1. [Getting Started](#getting-started)
+2. [Running MongoDB with Docker](#running-mongodb-with-docker-🐳)
+3. [Running the FastAPI server](#running-the-fastapi-server-🦄)
 4. [Running the BDD tests](#running-the-bdd-tests)
 5. [Dependencies](#dependencies)
 6. [Architecture](#architecture)
@@ -31,22 +31,36 @@ pip install -r requirements.txt
 
 ## Running MongoDB with Docker 🐳
 
+Docker is a tool that enables us to separate applications from their infrastructure, allowing us to deliver software quickly. It provides the ability to package and run an application in a loosely isolated environment called a container, facilitating work in standardized environments. To install Docker, it is recommended to follow the [Docker documentation](https://docs.docker.com/engine/install/) specific to your operating system. Additionally, installing [Docker Desktop](https://www.docker.com/products/docker-desktop/) is also recommended for a user-friendly graphical interface and streamlined management of Docker resources. The database is run using [Docker Compose](https://docs.docker.com/compose/install/), which is a container orchestrator. To install Docker Compose, follow the tutorial provided by Docker's official documentation. 
+
+If you are running on Windows, please make sure to open the Docker Desktop application before proceeding. It is required to run the container.
+
 ### First time running?
 
+To initialize Docker swarm mode, run the following command:
+```sh
+docker swarm init
+```
 
-Run the follow scripts to build the images
+This command will set up the necessary infrastructure for running Docker services. Once initialized, you can continue with the rest of the steps to run your application.
+
+Run the follow scripts to build the images and run the containers:
 
 ```sh
 docker-compose up --build
 ```
 
+This command will build the necessary container images and start them. Once the containers are up and running, you will be able to use the database for your application.
+
 ### Running Database
 
-Run docker compose
+To run the database container after the initial build, you can simply execute the following command:
 
 ```sh
 docker-compose up
 ```
+
+This command will start the database container without rebuilding it, unless you have made any changes to the Docker configuration that require a rebuild.
 
 If you want to run the docker container without watch the logs, you can run 
 
@@ -73,6 +87,14 @@ uvicorn src.main:app --reload
 ```
 
 This command will run the Uvicorn compiler in watch mode, so every time a modification occurs the server restarts.
+
+### API documentation
+
+FastAPI provides automatic API documentation that you can access by visiting the /docs endpoint of your application. This documentation is generated based on the code you have written, including route definitions, request and response models, and documentation comments. To view the API documentation, you can go to the URL http://localhost:8000/docs (assuming your FastAPI application is running on localhost and port 8000). This will display a user-friendly interface where you can explore the available endpoints, send requests, and view the corresponding responses. 
+
+The API documentation includes detailed information about each endpoint, such as the expected request and response models, possible response codes, and any additional documentation you have provided in your code. It serves as a helpful reference for developers who want to understand how to interact with your API.
+
+For more information on FastAPI's features and how to use them, you can refer to the [official documentation](https://fastapi.tiangolo.com/features/).
 
 ## Running the BDD tests
 
@@ -113,6 +135,8 @@ The following dependencies are used in the project:
 - [python-dotenv](https://pypi.org/project/python-dotenv/): A simple way to manage your environment variables in python scripts.
 - [FastAPI](https://fastapi.tiangolo.com/): A modern, fast (high-performance), web framework for building APIs with Python.
 - [Uvicorn](https://www.uvicorn.org/): An ASGI web server implementation for Python.
+- [Docker](https://docs.docker.com/get-started/overview/): Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly.
+- [Docker Compose](https://docs.docker.com/compose/): Docker Compose is a tool for defining and running multi-container Docker applications.
 - [Pydantic](https://docs.pydantic.dev/latest/): The most widely used data validation library for Python.
 - [Pymongo](https://pymongo.readthedocs.io/en/stable/tutorial.html): A Python distribution containing tools for working with MongoDB, and is the recommended way to work with MongoDB from Python.
 - [Pytest](https://docs.pytest.org/en/7.4.x/): Framework that makes it easy to write small, readable tests, and can scale to support complex functional testing for applications and libraries.
